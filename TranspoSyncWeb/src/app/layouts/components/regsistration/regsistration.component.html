@@ -1,0 +1,9 @@
+<ng-container>
+    <div
+        class="min-h-screen flex items-center justify-center bg-[url('/assets/images/BackGround.png')] bg-gray-100 dark:bg-gray-900">
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 w-full max-w-md">
+            <app-form-config [formConfig]="registerFormGroup"
+                (formSubmitted)="handleFormSubmit($event)"></app-form-config>
+        </div>
+    </div>
+</ng-container>

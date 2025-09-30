@@ -1,0 +1,26 @@
+<div class="w-full">
+    <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center mb-4">{{ formConfig.title }}</h5>
+    <form class="space-y-4" [formGroup]="formGroup" (ngSubmit)="submitForm()">
+        <ng-container *ngFor="let field of formConfig.formFields">
+            <div class="mb-4">
+                <label [for]="field.name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                    field.label }}</label>
+                <input
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    [type]="field.type" [formControlName]="field.name" [id]="field.name"
+                    [placeholder]="field.placeholder || ''" />
+                <div>
+                    <small class="text-red-500 text-sm mt-1 error-message"
+                        [ngClass]="{ 'show': displayError(field.name) }">
+                        <i class="fas fa-exclamation-triangle mr-1"></i>{{ displayError(field.name) }}
+                    </small>
+                </div>
+            </div>
+        </ng-container>
+        <button
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="submit">Submit</button>
+        <a class="text-blue-700 hover:underline dark:text-blue-500 ho" (click)="resetForm()">Back to sign in
+            ?</a>
+    </form>
+</div>
