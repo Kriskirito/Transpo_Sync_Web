@@ -1,6 +1,6 @@
 declare var google: any;
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { RedirectService } from '../../../core/services/redirect.service';
@@ -12,7 +12,7 @@ const LOGIN_USER_KEY = 'loginUserModel';
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [CommonModule],
+    imports: [],
     providers: [AuthService],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'

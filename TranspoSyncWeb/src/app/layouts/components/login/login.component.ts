@@ -8,7 +8,7 @@ import { LoginUserModel } from '../user-profile/user-constants';
 import { BaseFormConfig } from '../../../shared/models/form-config';
 import { Validators } from '@angular/forms';
 import { FormConfigComponent } from '../../../shared/components/form-config/form-config.component';
-import { CommonModule } from '@angular/common';
+
 import { RedirectService } from '../../../services/redirect-service';
 
 
@@ -20,7 +20,7 @@ declare var google: any;
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HttpClientModule, CommonModule],
+  imports: [HttpClientModule],
   providers: [AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormGroup } from '@angular/forms';
 import { FormConfigComponent } from '../../../shared/components/form-config/form-config.component';
 import { BaseFormConfig } from '../../../shared/models/form-config';
@@ -9,7 +9,7 @@ import { validateFormGroup } from '../../../shared/functions/register.function';
 @Component({
     selector: 'app-registration',
     standalone: true,
-    imports: [CommonModule, FormConfigComponent],
+    imports: [FormConfigComponent],
     templateUrl: './registration.component.html',
     styleUrl: './registration.component.scss'
 })

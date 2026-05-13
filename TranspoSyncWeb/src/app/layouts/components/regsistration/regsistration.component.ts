@@ -1,5 +1,5 @@
 import { Component, inject, Injectable, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormGroup, Validators } from '@angular/forms';
 import { FormConfigComponent } from '../../../shared/components/form-config/form-config.component';
 import { BaseFormConfig } from '../../../shared/models/form-config';
@@ -10,7 +10,7 @@ import { RedirectService } from '../../../services/redirect-service';
 @Component({
   selector: 'app-regsistration',
   standalone: true,
-  imports: [CommonModule, FormConfigComponent],
+  imports: [FormConfigComponent],
   templateUrl: './regsistration.component.html',
   styleUrl: './regsistration.component.scss'
 })

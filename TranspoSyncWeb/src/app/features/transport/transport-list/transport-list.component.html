@@ -1,131 +1,137 @@
 <div class="flex flex-col h-full overflow-auto bg-gray-50 dark:bg-slate-950 page-enter">
 
-    <!-- ── Header ── -->
-    <div class="px-6 pt-6 pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-            <h1 class="text-xl font-bold text-gray-900 dark:text-white">Transport Routes</h1>
-            <p class="text-xs text-gray-500 dark:text-slate-500 mt-0.5">Manage and monitor all active routes</p>
-        </div>
-        <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition shadow-lg shadow-blue-600/20 self-start sm:self-auto">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-            </svg>
-            Add Route
-        </button>
+  <!-- ── Header ── -->
+  <div class="px-6 pt-6 pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div>
+      <h1 class="text-xl font-bold text-gray-900 dark:text-white">Transport Routes</h1>
+      <p class="text-xs text-gray-500 dark:text-slate-500 mt-0.5">Manage and monitor all active routes</p>
     </div>
+    <button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition shadow-lg shadow-blue-600/20 self-start sm:self-auto">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+      </svg>
+      Add Route
+    </button>
+  </div>
 
-    <!-- ── Summary Cards ── -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 px-6 pb-4">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
-            <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Total Routes</p>
-            <p class="text-xl font-extrabold text-gray-900 dark:text-white mt-1">{{ filteredRoutes().length }}</p>
-        </div>
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
-            <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">In Transit</p>
-            <p class="text-xl font-extrabold text-blue-600 dark:text-blue-400 mt-1">
-                {{ inTransitCount() }}
-            </p>
-        </div>
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
-            <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Active</p>
-            <p class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1">
-                {{ activeCount() }}
-            </p>
-        </div>
-        <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
-            <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Completed</p>
-            <p class="text-xl font-extrabold text-gray-600 dark:text-slate-400 mt-1">0</p>
-        </div>
+  <!-- ── Summary Cards ── -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 px-6 pb-4">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
+      <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Total Routes</p>
+      <p class="text-xl font-extrabold text-gray-900 dark:text-white mt-1">{{ filteredRoutes().length }}</p>
     </div>
+    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
+      <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">In Transit</p>
+      <p class="text-xl font-extrabold text-blue-600 dark:text-blue-400 mt-1">
+        {{ inTransitCount() }}
+      </p>
+    </div>
+    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
+      <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Active</p>
+      <p class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1">
+        {{ activeCount() }}
+      </p>
+    </div>
+    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-gray-100 dark:border-white/[0.06] shadow-sm">
+      <p class="text-[10px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Completed</p>
+      <p class="text-xl font-extrabold text-gray-600 dark:text-slate-400 mt-1">0</p>
+    </div>
+  </div>
 
-    <!-- ── Filters ── -->
-    <div class="px-6 pb-4 flex flex-col sm:flex-row gap-3">
-        <div class="relative flex-1">
-            <svg class="absolute left-3.5 top-3 w-4 h-4 text-gray-400 dark:text-slate-500 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"/>
-            </svg>
-            <input type="text" placeholder="Search by origin, destination, ID..."
-                [ngModel]="searchTerm()"
-                (ngModelChange)="setSearchTerm($event)"
-                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/[0.08] text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition shadow-sm"/>
-        </div>
-        <select
-            [ngModel]="selectedStatus()"
-            (ngModelChange)="setStatusFilter($event)"
-            class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/[0.08] text-sm text-gray-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/40 shadow-sm transition">
-            <option value="">All Statuses</option>
-            <option value="active">Active</option>
-            <option value="in-transit">In Transit</option>
-            <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
-        </select>
+  <!-- ── Filters ── -->
+  <div class="px-6 pb-4 flex flex-col sm:flex-row gap-3">
+    <div class="relative flex-1">
+      <svg class="absolute left-3.5 top-3 w-4 h-4 text-gray-400 dark:text-slate-500 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"/>
+      </svg>
+      <input type="text" placeholder="Search by origin, destination, ID..."
+        [ngModel]="searchTerm()"
+        (ngModelChange)="setSearchTerm($event)"
+        class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/[0.08] text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition shadow-sm"/>
+      </div>
+      <select
+        [ngModel]="selectedStatus()"
+        (ngModelChange)="setStatusFilter($event)"
+        class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-gray-200 dark:border-white/[0.08] text-sm text-gray-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500/40 shadow-sm transition">
+        <option value="">All Statuses</option>
+        <option value="active">Active</option>
+        <option value="in-transit">In Transit</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
     </div>
 
     <!-- ── Table ── -->
     <div class="px-6 pb-6 flex-1">
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-white/[0.06] shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="text-[11px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider bg-gray-50 dark:bg-white/[0.02] border-b border-gray-100 dark:border-white/[0.06]">
-                            <th class="px-6 py-3.5 text-left">Route ID</th>
-                            <th class="px-6 py-3.5 text-left">Origin</th>
-                            <th class="px-6 py-3.5 text-left">Destination</th>
-                            <th class="px-6 py-3.5 text-left">Status</th>
-                            <th class="px-6 py-3.5 text-left">Vehicle</th>
-                            <th class="px-6 py-3.5 text-left">ETA</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-50 dark:divide-white/[0.04]">
-                        <tr *ngFor="let route of filteredRoutes()"
-                            class="hover:bg-gray-50/80 dark:hover:bg-white/[0.03] transition group">
-                            <td class="px-6 py-4">
-                                <span class="font-mono text-xs font-semibold text-gray-800 dark:text-slate-200">{{ route.id }}</span>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></div>
-                                    <span class="text-gray-700 dark:text-slate-300">{{ route.origin }}</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></div>
-                                    <span class="text-gray-700 dark:text-slate-300">{{ route.destination }}</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span [ngClass]="(route.status | statusBadge).classes"
-                                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">
-                                    {{ (route.status | statusBadge).label }}
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-gray-500 dark:text-slate-400 font-mono text-xs">{{ route.vehicleId || '—' }}</td>
-                            <td class="px-6 py-4 text-gray-400 dark:text-slate-500 text-xs">{{ route.estimatedTime }}</td>
-                        </tr>
-                        <tr *ngIf="filteredRoutes().length === 0">
-                            <td colspan="6" class="py-16 text-center">
-                                <div class="flex flex-col items-center gap-3">
-                                    <div class="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-white/5 flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-gray-300 dark:text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-                                    </div>
-                                    <p class="text-sm text-gray-400 dark:text-slate-500 font-medium">No routes found</p>
-                                    <p class="text-xs text-gray-300 dark:text-slate-600">Try adjusting your filters</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- Footer -->
-            <div *ngIf="filteredRoutes().length > 0"
-                class="px-6 py-3.5 border-t border-gray-100 dark:border-white/[0.06] flex items-center justify-between bg-gray-50/50 dark:bg-white/[0.01]">
-                <span class="text-xs text-gray-400 dark:text-slate-500">
-                    Showing <span class="font-semibold text-gray-600 dark:text-slate-400">{{ filteredRoutes().length }}</span> routes
-                </span>
-                <span class="text-[10px] text-gray-300 dark:text-slate-600">Last updated just now</span>
-            </div>
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-white/[0.06] shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-[11px] font-semibold text-gray-400 dark:text-slate-500 uppercase tracking-wider bg-gray-50 dark:bg-white/[0.02] border-b border-gray-100 dark:border-white/[0.06]">
+                <th class="px-6 py-3.5 text-left">Route ID</th>
+                <th class="px-6 py-3.5 text-left">Origin</th>
+                <th class="px-6 py-3.5 text-left">Destination</th>
+                <th class="px-6 py-3.5 text-left">Status</th>
+                <th class="px-6 py-3.5 text-left">Vehicle</th>
+                <th class="px-6 py-3.5 text-left">ETA</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-50 dark:divide-white/[0.04]">
+              @for (route of filteredRoutes(); track route) {
+                <tr
+                  class="hover:bg-gray-50/80 dark:hover:bg-white/[0.03] transition group">
+                  <td class="px-6 py-4">
+                    <span class="font-mono text-xs font-semibold text-gray-800 dark:text-slate-200">{{ route.id }}</span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></div>
+                      <span class="text-gray-700 dark:text-slate-300">{{ route.origin }}</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-2">
+                      <div class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></div>
+                      <span class="text-gray-700 dark:text-slate-300">{{ route.destination }}</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span [ngClass]="(route.status | statusBadge).classes"
+                      class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold">
+                      {{ (route.status | statusBadge).label }}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-gray-500 dark:text-slate-400 font-mono text-xs">{{ route.vehicleId || '—' }}</td>
+                  <td class="px-6 py-4 text-gray-400 dark:text-slate-500 text-xs">{{ route.estimatedTime }}</td>
+                </tr>
+              }
+              @if (filteredRoutes().length === 0) {
+                <tr>
+                  <td colspan="6" class="py-16 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-white/5 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-300 dark:text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                      </div>
+                      <p class="text-sm text-gray-400 dark:text-slate-500 font-medium">No routes found</p>
+                      <p class="text-xs text-gray-300 dark:text-slate-600">Try adjusting your filters</p>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
         </div>
+        <!-- Footer -->
+        @if (filteredRoutes().length > 0) {
+          <div
+            class="px-6 py-3.5 border-t border-gray-100 dark:border-white/[0.06] flex items-center justify-between bg-gray-50/50 dark:bg-white/[0.01]">
+            <span class="text-xs text-gray-400 dark:text-slate-500">
+              Showing <span class="font-semibold text-gray-600 dark:text-slate-400">{{ filteredRoutes().length }}</span> routes
+            </span>
+            <span class="text-[10px] text-gray-300 dark:text-slate-600">Last updated just now</span>
+          </div>
+        }
+      </div>
     </div>
 
-</div>
+  </div>

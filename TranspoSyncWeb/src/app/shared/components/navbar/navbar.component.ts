@@ -1,5 +1,5 @@
 import { Component, inject, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { UserModel } from '../../models/user-model';
@@ -9,7 +9,7 @@ const LOGIN_USER_KEY = 'loginUserModel';
 @Component({
     selector: 'app-navbar',
     standalone: true,
-    imports: [CommonModule, RouterLink],
+    imports: [RouterLink],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.scss'
 })
