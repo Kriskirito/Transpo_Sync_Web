@@ -1,0 +1,70 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+    <div
+        class="flex flex-row items-stretch gap-0 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden border border-white/10">
+        <!-- Brand Side -->
+        <div
+            class="hidden md:flex flex-col items-center justify-center w-1/2 bg-gradient-to-b from-blue-600 to-blue-800 p-10 gap-6">
+            <img src="../../../../assets/images/transpo-Img.png" alt="TranspoSync"
+                class="w-48 h-48 object-contain drop-shadow-2xl" />
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-white tracking-tight">TranspoSync</h1>
+                <p class="mt-2 text-blue-200 text-sm leading-relaxed max-w-xs">
+                    Intelligent transportation &amp; logistics management at your fingertips.
+                </p>
+            </div>
+            <div class="flex gap-3 mt-4">
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">Fleet Tracking</span>
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">Shipments</span>
+                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">Inventory</span>
+            </div>
+        </div>
+        <!-- Form Side -->
+        <div class="flex flex-col justify-center w-full md:w-1/2 bg-white dark:bg-gray-900 p-10">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Welcome back</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8">Sign in to your account to continue</p>
+
+            <form class="space-y-5" action="#">
+                <div>
+                    <label for="email"
+                        class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">User Email</label>
+                    <input type="email" name="email" id="email"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white transition"
+                        placeholder="name@company.com" />
+                </div>
+                <div>
+                    <label for="password"
+                        class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">User
+                        Password</label>
+                    <input type="password" name="password" id="password" placeholder="••••••••"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white transition" />
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input id="remember" type="checkbox"
+                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 accent-blue-600" />
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Remember me</span>
+                    </label>
+                    <a href="#" class="text-sm text-blue-600 hover:underline dark:text-blue-400">Lost Password?</a>
+                </div>
+                <button type="submit"
+                    class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-xl text-sm px-5 py-3 text-center transition dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Login to your account
+                </button>
+            </form>
+
+            <div class="flex items-center my-5 gap-3">
+                <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+                <span class="text-xs text-gray-400">or continue with</span>
+                <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+            </div>
+
+            <div id="google-btn" class="flex justify-center"></div>
+
+            <p class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                Not registered?
+                <a class="text-blue-600 hover:underline dark:text-blue-400 font-medium cursor-pointer"
+                    (click)="openRegistrationForm()">Create account</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<ng-container>
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+        <div class="bg-white dark:bg-gray-900 shadow-2xl rounded-2xl p-8 w-full max-w-md border border-white/10">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Create Account</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Join TranspoSync and manage your logistics</p>
+            </div>
+            <app-form-config [formConfig]="registerFormGroup"
+                (formSubmitted)="handleFormSubmit($event)"></app-form-config>
+        </div>
+    </div>
+</ng-container>

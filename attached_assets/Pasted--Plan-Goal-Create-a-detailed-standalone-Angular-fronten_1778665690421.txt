@@ -1,0 +1,35 @@
+### Plan
+
+**Goal:** Create a detailed, standalone Angular frontend architecture and component/service plan (with 2D/3D animation integration), strictly following modern Angular coding standards and best practices.
+
+**Steps:**
+1. Analyze Requirements & Standards — Review all requirements, Angular best practices, and animation needs for a standalone, modular project.
+2. Define Project Structure — Specify folder and file structure (core, shared, features, assets, environments, etc.) using feature-based modularity and standalone components.
+3. List Feature Modules & Components — Break down the system into feature modules, listing all major standalone components with proper naming conventions.
+4. Plan Angular Services — Identify and name Angular services for each backend microservice/domain, following naming and structure standards.
+5. Animation & UI Modernization — Specify where to use modern 2D (Angular Animations, GSAP) and 3D (Three.js) animations, and how to structure animation-related code.
+6. Routing & State Management — Plan routing (with lazy loading, functional guards/resolvers) and state management (Signals API, RxJS, best practices).
+7. Coding Standards & Practices — Explicitly list naming conventions, type safety, formatting, and other standards to be followed throughout the project.
+8. Summarize Deliverables — Present a clear, organized plan for all frontend modules, components, services, and animation integration, referencing the coding standards.
+
+**Files likely to be affected:**
+- No files will be changed yet; this is a planning phase only.
+- The plan will reference files such as:
+  - `src/app/core/`
+  - `src/app/shared/`
+  - `src/app/features/`
+  - `src/app/animations/`
+  - `src/app/app-routing.module.ts`
+  - `src/app/app.module.ts`
+  - `src/assets/`
+  - `src/environments/`
+  - Service and component files (to be created later)
+
+**Risks / Assumptions:**
+- Assumes Angular 16+ (for Signals, Standalone Components, etc.).
+- Assumes use of modern animation libraries (Angular Animations, GSAP, Three.js).
+- Assumes all backend APIs exist or will be stubbed; only service stubs will be planned.
+- 3D animation requirements may need further clarification (what to visualize in 3D).
+- No backend or database planning will be included—frontend only.
+- Some features may need clarification (e.g., exact inventory/transport flows, user roles).
+
