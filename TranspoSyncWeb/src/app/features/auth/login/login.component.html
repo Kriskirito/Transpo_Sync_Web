@@ -1,70 +1,112 @@
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
-    <div
-        class="flex flex-row items-stretch gap-0 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden border border-white/10">
-        <!-- Brand Side -->
-        <div
-            class="hidden md:flex flex-col items-center justify-center w-1/2 bg-gradient-to-b from-blue-600 to-blue-800 p-10 gap-6">
-            <img src="../../../../assets/images/transpo-Img.png" alt="TranspoSync"
-                class="w-48 h-48 object-contain drop-shadow-2xl" />
-            <div class="text-center">
-                <h1 class="text-3xl font-extrabold text-white tracking-tight">TranspoSync</h1>
-                <p class="mt-2 text-blue-200 text-sm leading-relaxed max-w-xs">
-                    Intelligent transportation &amp; logistics management at your fingertips.
+<div class="min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-950">
+    <!-- Animated gradient orbs -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full opacity-20 blur-3xl bg-blue-600 float"></div>
+        <div class="absolute top-1/2 -right-32 w-80 h-80 rounded-full opacity-15 blur-3xl bg-violet-600 float" style="animation-delay: -1.5s"></div>
+        <div class="absolute -bottom-32 left-1/3 w-72 h-72 rounded-full opacity-10 blur-3xl bg-cyan-500 float" style="animation-delay: -3s"></div>
+        <!-- Grid overlay -->
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(148,163,184,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.04) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-4xl mx-4">
+        <!-- Card -->
+        <div class="flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+            style="background: rgba(15,23,42,0.85); backdrop-filter: blur(24px);">
+
+            <!-- Left Panel -->
+            <div class="relative md:w-5/12 p-10 flex flex-col justify-between bg-gradient-to-br from-blue-600/90 to-violet-700/90 overflow-hidden">
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 80%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+                <!-- Brand -->
+                <div class="relative">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center shadow-lg">
+                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-extrabold text-white tracking-tight">TranspoSync</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white leading-tight">
+                        Smart logistics,<br/>seamless control.
+                    </h2>
+                    <p class="mt-3 text-blue-200 text-sm leading-relaxed">
+                        Manage your entire transportation network from a single, powerful platform.
+                    </p>
+                </div>
+
+                <!-- Feature pills -->
+                <div class="relative space-y-3 mt-8">
+                    <div *ngFor="let feature of features" class="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
+                        <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                            <span class="text-base">{{ feature.icon }}</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-white">{{ feature.title }}</p>
+                            <p class="text-xs text-blue-200">{{ feature.desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="md:w-7/12 p-10 flex flex-col justify-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-white">Welcome back</h3>
+                    <p class="text-slate-400 text-sm mt-1">Sign in to access your dashboard</p>
+                </div>
+
+                <form class="space-y-4" action="#">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+                        <div class="relative">
+                            <svg class="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                            </svg>
+                            <input type="email" name="email" placeholder="name@company.com"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Password</label>
+                        <div class="relative">
+                            <svg class="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                            <input type="password" name="password" placeholder="••••••••"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition" />
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded border-white/20 bg-white/5 accent-blue-500"/>
+                            <span class="text-sm text-slate-400">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text-blue-400 hover:text-blue-300 transition">Forgot password?</a>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-semibold text-sm transition shadow-lg shadow-blue-900/30 mt-2">
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="flex items-center gap-3 my-5">
+                    <div class="flex-1 h-px bg-white/10"></div>
+                    <span class="text-xs text-slate-500">or</span>
+                    <div class="flex-1 h-px bg-white/10"></div>
+                </div>
+
+                <div id="google-btn" class="flex justify-center"></div>
+
+                <p class="mt-6 text-center text-sm text-slate-500">
+                    No account yet?
+                    <a class="text-blue-400 hover:text-blue-300 font-medium transition cursor-pointer"
+                        (click)="openRegistrationForm()">Create one for free</a>
                 </p>
             </div>
-            <div class="flex gap-3 mt-4">
-                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">Fleet Tracking</span>
-                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">Shipments</span>
-                <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium">Inventory</span>
-            </div>
         </div>
-        <!-- Form Side -->
-        <div class="flex flex-col justify-center w-full md:w-1/2 bg-white dark:bg-gray-900 p-10">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Welcome back</h2>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8">Sign in to your account to continue</p>
 
-            <form class="space-y-5" action="#">
-                <div>
-                    <label for="email"
-                        class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">User Email</label>
-                    <input type="email" name="email" id="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white transition"
-                        placeholder="name@company.com" />
-                </div>
-                <div>
-                    <label for="password"
-                        class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">User
-                        Password</label>
-                    <input type="password" name="password" id="password" placeholder="••••••••"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500 dark:text-white transition" />
-                </div>
-                <div class="flex items-center justify-between">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input id="remember" type="checkbox"
-                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 accent-blue-600" />
-                        <span class="text-sm text-gray-700 dark:text-gray-300">Remember me</span>
-                    </label>
-                    <a href="#" class="text-sm text-blue-600 hover:underline dark:text-blue-400">Lost Password?</a>
-                </div>
-                <button type="submit"
-                    class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-semibold rounded-xl text-sm px-5 py-3 text-center transition dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Login to your account
-                </button>
-            </form>
-
-            <div class="flex items-center my-5 gap-3">
-                <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
-                <span class="text-xs text-gray-400">or continue with</span>
-                <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
-            </div>
-
-            <div id="google-btn" class="flex justify-center"></div>
-
-            <p class="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
-                Not registered?
-                <a class="text-blue-600 hover:underline dark:text-blue-400 font-medium cursor-pointer"
-                    (click)="openRegistrationForm()">Create account</a>
-            </p>
-        </div>
+        <p class="text-center text-xs text-slate-600 mt-6">
+            &copy; 2025 TranspoSync &middot; Secure &middot; Enterprise-grade logistics
+        </p>
     </div>
 </div>

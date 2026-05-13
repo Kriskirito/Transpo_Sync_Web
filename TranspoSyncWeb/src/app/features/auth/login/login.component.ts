@@ -9,9 +9,6 @@ import { UserModel } from '../../../shared/models/user-model';
 
 const LOGIN_USER_KEY = 'loginUserModel';
 
-/**
- * LoginComponent handles user authentication via Google Identity.
- */
 @Component({
     selector: 'app-login',
     standalone: true,
@@ -21,6 +18,12 @@ const LOGIN_USER_KEY = 'loginUserModel';
     styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
+    public readonly features = [
+        { icon: '🚛', title: 'Fleet Tracking', desc: 'Real-time vehicle monitoring' },
+        { icon: '📦', title: 'Shipment Management', desc: 'End-to-end shipment visibility' },
+        { icon: '📊', title: 'Analytics & Reports', desc: 'Data-driven insights' },
+    ];
+
     constructor(
         private readonly authService: AuthService,
         private readonly router: Router,
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit {
             });
             google.accounts.id.renderButton(
                 document.getElementById('google-btn'),
-                { theme: 'filled_blue', shape: 'rectangular', size: 'large', width: '260px' }
+                { theme: 'outline', shape: 'rectangular', size: 'large', width: '280px' }
             );
         } else {
             console.error('Google Identity script not loaded!');
